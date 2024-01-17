@@ -1,5 +1,7 @@
 # de-zoomcamp
 
+## Schedule
+
 Deadlines, grabbed from [this link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml):
 
 | Module                           | Start     | Homework due | Duration  |
@@ -18,3 +20,16 @@ Deadlines, grabbed from [this link](https://docs.google.com/spreadsheets/d/e/2PA
 | Project evaluation (attempt 2)   | 15-Apr-24 | 29-Apr-24    | 1 week    |
 
 For the above, I pasted the table from above link into [this site](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) and converted to Markdown.
+
+## Overview
+
+- *1_setup/*
+- *2_workflow_orchestration/*
+- *3_data_warehouse/*
+- *4_analytics_engineering/*
+- *5_batch/*
+- *6_streaming/*
+- *workshops/*
+    - *1_dlt/*
+    - *2_risingwave/*
+- *projects/*

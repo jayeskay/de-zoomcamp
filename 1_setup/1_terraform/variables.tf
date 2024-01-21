@@ -5,7 +5,7 @@ locals {
 variable "project" {
   description = "Name of project--to use as prefix for various AWS resources"
   type = string
-  default = "dez2023"
+  default = "dez2024"
 }
 
 variable "region" {

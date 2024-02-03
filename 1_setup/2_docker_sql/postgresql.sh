@@ -5,7 +5,7 @@
 # -p (port):      Publish a container's port(s) to the host, mapping as <HOSTPORT>:<CONTAINERPORT>;
 #                 map TCP port 5432 in the container to port 5431 on the Docker host, as 5432 taken
 
-docker run -it \
+docker run -itd --rm \
     -e POSTGRES_USER=postgres \
     -e POSTGRES_PASSWORD=postgres \
     -e POSTGRES_DB=ny_taxi \

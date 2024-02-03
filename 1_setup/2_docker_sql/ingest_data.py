@@ -1,18 +1,18 @@
 from sqlalchemy import create_engine
 import pandas as pd
 
-engine = create_engine('postgresql://postgres:postgres@localhost:5431/ny_taxi')
+engine = create_engine('postgresql://postgres:postgres@pg-database:5432/ny_taxi')
 
 # Import raw data as; use chunking due to file size
 green_taxi_data_201909_iter = pd.read_csv(
-    filepath_or_buffer='/Users/jonathon/de-zoomcamp/1_setup/2_docker_sql/green_tripdata_2019-09.csv.gz',
+    filepath_or_buffer='green_tripdata_2019-09.csv.gz',
     compression='gzip',
     iterator=True,
     chunksize=100000
 )
 
 # Imoprt location lookup detail (for JOIN)
-taxi_zone_lookup = pd.read_csv('/Users/jonathon/de-zoomcamp/1_setup/2_docker_sql/taxi_zone_lookup.csv')
+taxi_zone_lookup = pd.read_csv('taxi_zone_lookup.csv')
 
 counter = 0
 

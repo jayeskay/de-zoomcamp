@@ -1,12 +1,10 @@
 # ETL
 
-## Summary
+## Background
 
-| Dataset     | Year        | Duration    |
-| ----------- | ----------- | ----------- |
-| FHV         | 2019        | ~14m, 20s   |
-| GREEN       | 2020        | ~5m, 25s    |
-| YELLOW      | 2020        | ~45m        |
+While BigQuery offers the ability to pull this data in directly via external connector, Snowflake doesn't play as nice.
+
+While it **is** possible to query AWS S3 location directly, the S3 policy requires an AWS account--the only way I could meet this critera involved storing credentials directly in Snowflake query. This is a terrible practice and precedent.
 
 ## Process
 
@@ -47,7 +45,7 @@ dtypes = {
 #### Green
 
 ```python
-taxi_data_dtypes = {
+dtypes = {
     'VendorID': pd.Int64Dtype(),
     'lpep_pickup_datetime': 'datetime64[ns]',
     'lpep_dropoff_datetime': 'datetime64[ns]',
@@ -72,7 +70,7 @@ taxi_data_dtypes = {
 #### Yellow
 
 ```python
-taxi_data_dtypes = {
+dtypes = {
     'VendorID': pd.Int64Dtype(),
     'tpep_pickup_datetime': 'datetime64[ns]',
     'tpep_dropoff_datetime': 'datetime64[ns]',
@@ -131,3 +129,11 @@ The remainder of `object_key` is set as shown, where `d` is an individual date s
 ```python
 object_key=f"{PREFIX}/{d.strftime('%Y%m%d')}.parquet.gz"
 ```
+
+See below summary for processing and upload times:
+
+| Dataset     | Year        | Duration    |
+| ----------- | ----------- | ----------- |
+| FHV         | 2019        | ~14m, 20s   |
+| GREEN       | 2020        | ~5m, 25s    |
+| YELLOW      | 2020        | ~45m        |
